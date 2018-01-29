@@ -13,6 +13,9 @@
 		F1F6B7FF2019AD92006E824B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F1F6B7FD2019AD92006E824B /* Main.storyboard */; };
 		F1F6B8012019AD92006E824B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F1F6B8002019AD92006E824B /* Assets.xcassets */; };
 		F1F6B8042019AD92006E824B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F1F6B8022019AD92006E824B /* LaunchScreen.storyboard */; };
+		F1F6B855201EF807006E824B /* LoggerFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1F6B854201EF807006E824B /* LoggerFormatter.swift */; };
+		F1F6B857201F071D006E824B /* Micros.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1F6B856201F071D006E824B /* Micros.swift */; };
+		F1F6B859201F5011006E824B /* MyLogManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1F6B858201F5011006E824B /* MyLogManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +29,9 @@
 		F1F6B8002019AD92006E824B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F1F6B8032019AD92006E824B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		F1F6B8052019AD92006E824B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F1F6B854201EF807006E824B /* LoggerFormatter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoggerFormatter.swift; sourceTree = "<group>"; };
+		F1F6B856201F071D006E824B /* Micros.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Micros.swift; sourceTree = "<group>"; };
+		F1F6B858201F5011006E824B /* MyLogManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyLogManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -80,10 +86,13 @@
 			children = (
 				F1F6B7F92019AD92006E824B /* AppDelegate.swift */,
 				F1F6B7FB2019AD92006E824B /* ViewController.swift */,
+				F1F6B854201EF807006E824B /* LoggerFormatter.swift */,
 				F1F6B7FD2019AD92006E824B /* Main.storyboard */,
 				F1F6B8002019AD92006E824B /* Assets.xcassets */,
 				F1F6B8022019AD92006E824B /* LaunchScreen.storyboard */,
 				F1F6B8052019AD92006E824B /* Info.plist */,
+				F1F6B856201F071D006E824B /* Micros.swift */,
+				F1F6B858201F5011006E824B /* MyLogManager.swift */,
 			);
 			path = LogManager;
 			sourceTree = "<group>";
@@ -217,6 +226,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F1F6B857201F071D006E824B /* Micros.swift in Sources */,
+				F1F6B855201EF807006E824B /* LoggerFormatter.swift in Sources */,
+				F1F6B859201F5011006E824B /* MyLogManager.swift in Sources */,
 				F1F6B7FC2019AD92006E824B /* ViewController.swift in Sources */,
 				F1F6B7FA2019AD92006E824B /* AppDelegate.swift in Sources */,
 			);
@@ -292,7 +304,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -343,7 +355,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
