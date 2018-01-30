@@ -9,20 +9,23 @@
 import UIKit
 import CocoaLumberjack
 
-class MyLogManager: NSObject {
+class LoggerManager: NSObject {
     var fileLogger: DDFileLogger!
-    private static let sharedMyLogManager: MyLogManager = {
-        let shared = MyLogManager()
+
+    private static let sharedLogManager: LoggerManager = {
+        let shared = LoggerManager()
         return shared
     }()
 
-    class func shared() -> MyLogManager {
-        return sharedMyLogManager
+    class func shared() -> LoggerManager {
+        return sharedLogManager
     }
 
-    func configMyLogger() {
+    func configLoggerManager() {
         let formatter = LoggerFormatter.init()
         DDTTYLogger.sharedInstance.logFormatter = formatter
+        DDASLLogger.sharedInstance.logFormatter = formatter
+        // 一个文件记录一周的日志
         fileLogger = DDFileLogger()
         fileLogger.rollingFrequency = TimeInterval(60*60*24)
         fileLogger.logFileManager.maximumNumberOfLogFiles = 7
@@ -33,9 +36,7 @@ class MyLogManager: NSObject {
         DDLog.add(DDTTYLogger.sharedInstance)
         // ASL = Apple System Logs，苹果系统日志
         DDLog.add(DDASLLogger.sharedInstance)
-//        let appName = ProcessInfo.processInfo.processName
-//        let paths = NSSearchPathForDirectoriesInDomains(FileManager.SearchPathDirectory.libraryDirectory, FileManager.SearchPathDomainMask.userDomainMask, true)
-//        let basePath = paths.count > 0 ? paths[0]: NSTemporaryDirectory()
+
         //获取log文件夹路径
         let logDirectory = fileLogger.logFileManager.logsDirectory
         DDLogDebug(logDirectory!)

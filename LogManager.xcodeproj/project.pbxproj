@@ -15,7 +15,8 @@
 		F1F6B8042019AD92006E824B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F1F6B8022019AD92006E824B /* LaunchScreen.storyboard */; };
 		F1F6B855201EF807006E824B /* LoggerFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1F6B854201EF807006E824B /* LoggerFormatter.swift */; };
 		F1F6B857201F071D006E824B /* Micros.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1F6B856201F071D006E824B /* Micros.swift */; };
-		F1F6B859201F5011006E824B /* MyLogManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1F6B858201F5011006E824B /* MyLogManager.swift */; };
+		F1F6B859201F5011006E824B /* LoggerManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1F6B858201F5011006E824B /* LoggerManager.swift */; };
+		F1F6B85B20200127006E824B /* ExceptionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1F6B85A20200127006E824B /* ExceptionManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -31,7 +32,8 @@
 		F1F6B8052019AD92006E824B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F1F6B854201EF807006E824B /* LoggerFormatter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoggerFormatter.swift; sourceTree = "<group>"; };
 		F1F6B856201F071D006E824B /* Micros.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Micros.swift; sourceTree = "<group>"; };
-		F1F6B858201F5011006E824B /* MyLogManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyLogManager.swift; sourceTree = "<group>"; };
+		F1F6B858201F5011006E824B /* LoggerManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoggerManager.swift; sourceTree = "<group>"; };
+		F1F6B85A20200127006E824B /* ExceptionManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExceptionManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -86,13 +88,14 @@
 			children = (
 				F1F6B7F92019AD92006E824B /* AppDelegate.swift */,
 				F1F6B7FB2019AD92006E824B /* ViewController.swift */,
-				F1F6B854201EF807006E824B /* LoggerFormatter.swift */,
 				F1F6B7FD2019AD92006E824B /* Main.storyboard */,
 				F1F6B8002019AD92006E824B /* Assets.xcassets */,
 				F1F6B8022019AD92006E824B /* LaunchScreen.storyboard */,
 				F1F6B8052019AD92006E824B /* Info.plist */,
 				F1F6B856201F071D006E824B /* Micros.swift */,
-				F1F6B858201F5011006E824B /* MyLogManager.swift */,
+				F1F6B854201EF807006E824B /* LoggerFormatter.swift */,
+				F1F6B858201F5011006E824B /* LoggerManager.swift */,
+				F1F6B85A20200127006E824B /* ExceptionManager.swift */,
 			);
 			path = LogManager;
 			sourceTree = "<group>";
@@ -132,6 +135,7 @@
 				TargetAttributes = {
 					F1F6B7F52019AD92006E824B = {
 						CreatedOnToolsVersion = 9.2;
+						LastSwiftMigration = 0920;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -227,8 +231,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				F1F6B857201F071D006E824B /* Micros.swift in Sources */,
+				F1F6B85B20200127006E824B /* ExceptionManager.swift in Sources */,
 				F1F6B855201EF807006E824B /* LoggerFormatter.swift in Sources */,
-				F1F6B859201F5011006E824B /* MyLogManager.swift in Sources */,
+				F1F6B859201F5011006E824B /* LoggerManager.swift in Sources */,
 				F1F6B7FC2019AD92006E824B /* ViewController.swift in Sources */,
 				F1F6B7FA2019AD92006E824B /* AppDelegate.swift in Sources */,
 			);
@@ -310,6 +315,7 @@
 				SDKROOT = iphoneos;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_PRECOMPILE_BRIDGING_HEADER = YES;
 			};
 			name = Debug;
 		};
@@ -359,6 +365,7 @@
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				SWIFT_PRECOMPILE_BRIDGING_HEADER = YES;
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
@@ -368,6 +375,7 @@
 			baseConfigurationReference = 79731199B15A680AFDF86BD5 /* Pods-LogManager.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = JH88EZ43QQ;
@@ -377,6 +385,8 @@
 				PRODUCT_BUNDLE_IDENTIFIER = S.LogManager;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
+				SWIFT_OBJC_BRIDGING_HEADER = "";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -387,6 +397,7 @@
 			baseConfigurationReference = 5AF9CCBDF7CC4BBEB54EAC99 /* Pods-LogManager.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = JH88EZ43QQ;
@@ -396,6 +407,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = S.LogManager;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
+				SWIFT_OBJC_BRIDGING_HEADER = "";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};

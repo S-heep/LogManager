@@ -12,15 +12,16 @@ import CocoaLumberjack
 class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
-        MyLogManager.shared().configMyLogger()
+        LoggerManager.shared().configLoggerManager()
+        ExceptionManager.init().setDefaultHandler()
         DDLogVerbose("Verbose")
         DDLogDebug("Debug")
         DDLogInfo("Info")
         DDLogWarn("Warn")
         DDLogError("Error")
         print("This is a Log Manager")
-//        let array = [String]()
-//        print(array[1])
+        let array = [String]()
+        //DDLogError(array[1])
     }
 
 }
