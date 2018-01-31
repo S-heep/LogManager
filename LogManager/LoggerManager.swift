@@ -9,6 +9,10 @@
 import UIKit
 import CocoaLumberjack
 
+
+/*  此类是日志管理单例类，配置三类日志管理器：1.DDTTYLogger：控制台输出 2.DDASLLogger：苹果系统日志 3.DDFileLogger：文件日志
+    不同级别日志的显示背景颜色与文字颜色，暂未实现（优先级不高XcodeColors）
+*/
 class LoggerManager: NSObject {
     var fileLogger: DDFileLogger!
 
@@ -43,8 +47,10 @@ class LoggerManager: NSObject {
         //获取排序后的log名称
         //let logsNameArray = fileLogger.logFileManager.sortedLogFileNames
         //DDLogDebug("%@", level: logsNameArray)
+        // 背景颜色设置需要查看XcodeColors，优先级不高
         setenv("XcodeColors", "YES", 0)
         DDLog.add(DDTTYLogger.sharedInstance)
+        DDTTYLogger.sharedInstance.colorsEnabled = true
         // 启用颜色区分
         DDTTYLogger.sharedInstance.colorsEnabled = true
         // 设置文字为白色，背景为灰色

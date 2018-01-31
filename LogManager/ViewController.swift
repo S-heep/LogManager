@@ -13,7 +13,7 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         LoggerManager.shared().configLoggerManager()
-        
+        ExceptionManager.shared().setDefaultHandler()
         DDLogVerbose("Verbose")
         DDLogDebug("Debug")
         DDLogInfo("Info")
@@ -21,13 +21,11 @@ class ViewController: UIViewController {
 //        fatalError("我是错误，我会奔溃")
         DDLogError("Error")
         print("This is a Log Manager")
-        signal(SIGTRAP) { (excep) in
-            print("------")
-            print(excep.description)
-        }
 
-        let array = [String]()
-        DDLogVerbose(array[1])
+        //exceptionLogWithData()
+        let arry:NSArray = ["1"]
+        print("%@",arry[5])
+        //print(array[2])
 //        assert(false, "我是提醒，我不会奔溃")
 //        fatalError("我是错误，我会奔溃")
 //        assert(true)
@@ -36,6 +34,20 @@ class ViewController: UIViewController {
 
     }
 
+    func exceptionLogWithData() {
+        ExceptionManager.shared().setDefaultHandler()
+        //        let a = ExceptionManager.init()
+        //        a.setDefaultHandler()
+        //        let str = a.getdataPath()
+        //        let data = NSData.init(contentsOfFile: str)
+        //        if data != nil {
+        //            let crushStr = String.init(data: data as! Data, encoding: String.Encoding.utf8)
+        //            print(crushStr!)
+        //        }
+        //测试数据
+        let arry:NSArray = ["1"]
+        print("%@",arry[5])
+    }
 
 
 }
