@@ -26,7 +26,6 @@ class ViewController: UIViewController {
             print(excep.description)
         }
 
-        registerUncaughtExceptionHandler()
         let array = [String]()
         DDLogVerbose(array[1])
 //        assert(false, "我是提醒，我不会奔溃")
