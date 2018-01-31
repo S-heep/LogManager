@@ -54,5 +54,4 @@ class LoggerManager: NSObject {
         DDTTYLogger.sharedInstance.setForegroundColor(UIColor.lightGray, backgroundColor: UIColor.orange, for: DDLogFlag.warning)
         DDTTYLogger.sharedInstance.setForegroundColor(UIColor.white, backgroundColor: UIColor.red, for: DDLogFlag.error)
     }
-
 }

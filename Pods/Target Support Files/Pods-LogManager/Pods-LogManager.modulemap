@@ -1,0 +1,6 @@
+framework module Pods_LogManager {
+  umbrella header "Pods-LogManager-umbrella.h"
+
+  export *
+  module * { export * }
+}

@@ -15,9 +15,20 @@ class ExceptionManager: NSObject {
         let array: [String] = excep.callStackSymbols
         let reason: String? = excep.reason
         let name: NSExceptionName = excep.name
-        let url: String = String.init(format: "name: %@ \n reason: %@\n callStackSymbols: %@\n", name as CVarArg, (reason)!, array.joined(separator: ","))
+        let url: String = String.init(format: "****异常错误****\n name: %@ \n reason: %@\n callStackSymbols: %@\n", name as CVarArg, (reason)!, array.joined(separator: ","))
         DDLogError(url)
     }
+
+    func uncaughtExceptionHandler() -> @convention(c) (NSException) -> Void {
+        return { (excep) -> Void in
+            let array: [String] = excep.callStackSymbols
+            let reason: String? = excep.reason
+            let name: NSExceptionName = excep.name
+            let url: String = String.init(format: "****异常错误****\n name: %@ \n reason: %@\n callStackSymbols: %@\n", name as CVarArg, reason!, array.joined(separator: ","))
+            DDLogError(url)
+        }
+    }
+
 
     func getHandler() -> NSUncaughtExceptionHandler {
         return NSGetUncaughtExceptionHandler()!
@@ -26,8 +37,9 @@ class ExceptionManager: NSObject {
     func setDefaultHandler() {
         // 传一个闭包
         DDLogDebug("进入设置默认异常情况")
-        //NSSetUncaughtExceptionHandler(uncaughtExceptionHandler(excep: NSException()))
-//         NSSetUncaughtExceptionHandler(&UncaughtExceptionHandler);
+        NSSetUncaughtExceptionHandler { (excep) in
+            DDLogError(excep.callStackSymbols.joined())
+        }
     }
 
     func takeException(excep: NSException) {
