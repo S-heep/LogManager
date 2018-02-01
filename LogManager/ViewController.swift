@@ -10,27 +10,25 @@ import UIKit
 import CocoaLumberjack
 
 class ViewController: UIViewController {
+    var bteste: String?
     override func viewDidLoad() {
         super.viewDidLoad()
         LoggerManager.shared().configLoggerManager()
         ExceptionManager.shared().setDefaultHandler()
+        ExceptionManager.shared().registerSignalHandler()
         DDLogVerbose("Verbose")
         DDLogDebug("Debug")
         DDLogInfo("Info")
         DDLogWarn("Warn")
-//        fatalError("我是错误，我会奔溃")
         DDLogError("Error")
         print("This is a Log Manager")
 
-        //exceptionLogWithData()
-        let arry:NSArray = ["1"]
-        print("%@",arry[5])
-        //print(array[2])
-//        assert(false, "我是提醒，我不会奔溃")
-//        fatalError("我是错误，我会奔溃")
-//        assert(true)
+        print(bteste!)
 
-        //print(array[1])
+        //exceptionLogWithData()
+//        let arry:NSArray = ["1"]
+//        print("%@",arry[5])
+        //print(array[2])
 
     }
 
@@ -45,6 +43,8 @@ class ViewController: UIViewController {
         //            print(crushStr!)
         //        }
         //测试数据
+//        let atest = nil
+//        print(atest!)
         let arry:NSArray = ["1"]
         print("%@",arry[5])
     }

@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		94F85236CDC93A840C046658 /* Pods_LogManager.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 70CB3F4A75280D2936FE4D49 /* Pods_LogManager.framework */; };
+		F153C3A620229CBB0085C5ED /* SlideAdressTool.m in Sources */ = {isa = PBXBuildFile; fileRef = F153C3A420229CBA0085C5ED /* SlideAdressTool.m */; };
 		F1F6B7FA2019AD92006E824B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1F6B7F92019AD92006E824B /* AppDelegate.swift */; };
 		F1F6B7FC2019AD92006E824B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1F6B7FB2019AD92006E824B /* ViewController.swift */; };
 		F1F6B7FF2019AD92006E824B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F1F6B7FD2019AD92006E824B /* Main.storyboard */; };
@@ -24,6 +25,8 @@
 		70CB3F4A75280D2936FE4D49 /* Pods_LogManager.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_LogManager.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		79731199B15A680AFDF86BD5 /* Pods-LogManager.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LogManager.debug.xcconfig"; path = "Pods/Target Support Files/Pods-LogManager/Pods-LogManager.debug.xcconfig"; sourceTree = "<group>"; };
 		F153C3A020219A8D0085C5ED /* LogManager-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "LogManager-Bridging-Header.h"; sourceTree = "<group>"; };
+		F153C3A420229CBA0085C5ED /* SlideAdressTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SlideAdressTool.m; sourceTree = "<group>"; };
+		F153C3A520229CBB0085C5ED /* SlideAdressTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SlideAdressTool.h; sourceTree = "<group>"; };
 		F1F6B7F62019AD92006E824B /* LogManager.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LogManager.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F1F6B7F92019AD92006E824B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F1F6B7FB2019AD92006E824B /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -97,6 +100,8 @@
 				F1F6B854201EF807006E824B /* LoggerFormatter.swift */,
 				F1F6B858201F5011006E824B /* LoggerManager.swift */,
 				F1F6B85A20200127006E824B /* ExceptionManager.swift */,
+				F153C3A520229CBB0085C5ED /* SlideAdressTool.h */,
+				F153C3A420229CBA0085C5ED /* SlideAdressTool.m */,
 				F153C3A020219A8D0085C5ED /* LogManager-Bridging-Header.h */,
 			);
 			path = LogManager;
@@ -238,6 +243,7 @@
 				F1F6B859201F5011006E824B /* LoggerManager.swift in Sources */,
 				F1F6B7FC2019AD92006E824B /* ViewController.swift in Sources */,
 				F1F6B7FA2019AD92006E824B /* AppDelegate.swift in Sources */,
+				F153C3A620229CBB0085C5ED /* SlideAdressTool.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
