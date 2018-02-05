@@ -11,11 +11,11 @@ import CocoaLumberjack
 
 
 /*  此类是日志管理单例类，配置三类日志管理器：1.DDTTYLogger：控制台输出 2.DDASLLogger：苹果系统日志 3.DDFileLogger：文件日志
-    不同级别日志的显示背景颜色与文字颜色，暂未实现（优先级不高XcodeColors）
+    不同级别日志的显示背景颜色与文字颜色，暂未实现（优先级不高,使用XcodeColors实现，但是Xcode9以后该插件不再起作用）
 */
 class LoggerManager: NSObject {
-    var fileLogger: DDFileLogger!
 
+    var fileLogger: DDFileLogger!
     private static let sharedLogManager: LoggerManager = {
         let shared = LoggerManager()
         return shared

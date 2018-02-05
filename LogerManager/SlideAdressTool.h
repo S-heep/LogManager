@@ -1,9 +1,9 @@
 //
 //  SlideAdressTool.h
-//  XYGenericFramework
+//  LogManager
 //
-//  Created by xiaoyi on 2017/8/18.
-//  Copyright © 2017年 xiaoyi. All rights reserved.
+//  Created by 王娜 on 2018/1/31.
+//  Copyright © 2018年 王娜. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>

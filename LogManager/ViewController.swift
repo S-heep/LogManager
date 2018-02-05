@@ -43,7 +43,7 @@ class ViewController: UIViewController {
     }
 
     @objc func execee() {
-        print(bteste!)
+        bteste = bteste! + "sss"
     }
 
     @objc func exceptionLogWithData() {
