@@ -95,15 +95,29 @@ extension ShowLoggerViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
         // 加载日志
-        let logFile = ddLogerFiles[indexPath.row]
-        do {
-            let logData = try String.init(contentsOfFile: logFile.filePath, encoding: String.Encoding.utf8)
-            let vc = DetailLoggerViewController()
-            vc.initLogContent(logString: logData)
-            self.navigationController?.pushViewController(vc, animated: true)
-            
-        } catch {
-            print("未获取到log日志")
+        if indexPath.section == 0 {
+            do {
+                let crashInfo = try String.init(contentsOfFile: crashLoggerFile, encoding: String.Encoding.utf8)
+                let vc = DetailLoggerViewController()
+                vc.initLogContent(logString: crashInfo)
+                self.navigationController?.pushViewController(vc, animated: true)
+
+            } catch {
+                print("未获取到奔溃日志")
+            }
+
+        }
+        if indexPath.section == 1 {
+            let logFile = ddLogerFiles[indexPath.row]
+            do {
+                let logData = try String.init(contentsOfFile: logFile.filePath, encoding: String.Encoding.utf8)
+                let vc = DetailLoggerViewController()
+                vc.initLogContent(logString: logData)
+                self.navigationController?.pushViewController(vc, animated: true)
+
+            } catch {
+                print("未获取到log日志")
+            }
         }
     }
 }
