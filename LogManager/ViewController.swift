@@ -38,8 +38,15 @@ class ViewController: UIViewController {
         button1.setTitleColor(.red, for: .normal)
         button1.addTarget(self, action: #selector(exceptionLogWithData), for: .touchUpInside)
 
+        let button2 = UIButton.init(frame: CGRect(x: 100, y: 400, width: 200, height: 44))
+        button2.setTitle("logSystem", for: .normal)
+        button2.backgroundColor = UIColor.blue
+        button2.setTitleColor(.red, for: .normal)
+        button2.addTarget(self, action: #selector(logSys), for: .touchUpInside)
+
         view.addSubview(button)
         view.addSubview(button1)
+        view.addSubview(button2)
     }
 
     @objc func execee() {
@@ -51,6 +58,9 @@ class ViewController: UIViewController {
         print("%@",arry[5])
     }
 
+    @objc func logSys() {
+        self.navigationController?.pushViewController(ShowLoggerViewController(), animated: true)
+    }
 
 }
 

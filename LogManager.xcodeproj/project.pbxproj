@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		94F85236CDC93A840C046658 /* Pods_LogManager.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 70CB3F4A75280D2936FE4D49 /* Pods_LogManager.framework */; };
 		F127D4BD2028228500B76244 /* ShowLoggerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F127D4BC2028228500B76244 /* ShowLoggerViewController.swift */; };
+		F127D4BF2028522D00B76244 /* DetailLoggerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F127D4BE2028522D00B76244 /* DetailLoggerViewController.swift */; };
 		F153C3A620229CBB0085C5ED /* SlideAdressTool.m in Sources */ = {isa = PBXBuildFile; fileRef = F153C3A420229CBA0085C5ED /* SlideAdressTool.m */; };
 		F1F6B7FA2019AD92006E824B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1F6B7F92019AD92006E824B /* AppDelegate.swift */; };
 		F1F6B7FC2019AD92006E824B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1F6B7FB2019AD92006E824B /* ViewController.swift */; };
@@ -26,6 +27,7 @@
 		70CB3F4A75280D2936FE4D49 /* Pods_LogManager.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_LogManager.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		79731199B15A680AFDF86BD5 /* Pods-LogManager.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LogManager.debug.xcconfig"; path = "Pods/Target Support Files/Pods-LogManager/Pods-LogManager.debug.xcconfig"; sourceTree = "<group>"; };
 		F127D4BC2028228500B76244 /* ShowLoggerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowLoggerViewController.swift; sourceTree = "<group>"; };
+		F127D4BE2028522D00B76244 /* DetailLoggerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailLoggerViewController.swift; sourceTree = "<group>"; };
 		F153C3A020219A8D0085C5ED /* LogManager-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "LogManager-Bridging-Header.h"; sourceTree = "<group>"; };
 		F153C3A420229CBA0085C5ED /* SlideAdressTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SlideAdressTool.m; sourceTree = "<group>"; };
 		F153C3A520229CBB0085C5ED /* SlideAdressTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SlideAdressTool.h; sourceTree = "<group>"; };
@@ -114,6 +116,7 @@
 				F1F6B856201F071D006E824B /* Micros.swift */,
 				F153C3A020219A8D0085C5ED /* LogManager-Bridging-Header.h */,
 				F127D4BC2028228500B76244 /* ShowLoggerViewController.swift */,
+				F127D4BE2028522D00B76244 /* DetailLoggerViewController.swift */,
 			);
 			path = LogManager;
 			sourceTree = "<group>";
@@ -250,6 +253,7 @@
 			files = (
 				F1F6B857201F071D006E824B /* Micros.swift in Sources */,
 				F127D4BD2028228500B76244 /* ShowLoggerViewController.swift in Sources */,
+				F127D4BF2028522D00B76244 /* DetailLoggerViewController.swift in Sources */,
 				F1F6B85B20200127006E824B /* ExceptionManager.swift in Sources */,
 				F1F6B855201EF807006E824B /* LoggerFormatter.swift in Sources */,
 				F1F6B859201F5011006E824B /* LoggerManager.swift in Sources */,

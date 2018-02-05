@@ -51,6 +51,8 @@ func getdataPath() -> String {
 
 class ExceptionManager: NSObject {
 
+    var logFilePath = getdataPath()
+
     // 设置类是单例
     private static let sharedExceManager: ExceptionManager = {
         let sharedInstance = ExceptionManager()

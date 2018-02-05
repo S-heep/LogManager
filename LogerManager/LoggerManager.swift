@@ -45,7 +45,7 @@ class LoggerManager: NSObject {
         let logDirectory = fileLogger.logFileManager.logsDirectory
         DDLogDebug(logDirectory!)
         //获取排序后的log名称
-        //let logsNameArray = fileLogger.logFileManager.sortedLogFileNames
+//        let logsNameArray = fileLogger.logFileManager.sortedLogFileInfos
         //DDLogDebug("%@", level: logsNameArray)
         // 背景颜色设置需要查看XcodeColors，优先级不高
         setenv("XcodeColors", "YES", 0)
