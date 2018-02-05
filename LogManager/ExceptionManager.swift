@@ -19,6 +19,31 @@ func signalExceptionHandler(signal: Int32) {
     for symbol in Thread.callStackSymbols {
         mstr = mstr.appendingFormat("%@\r\n", symbol)
     }
+//    let documentpath = NSSearchPathForDirectoriesInDomains(FileManager.SearchPathDirectory.documentDirectory, FileManager.SearchPathDomainMask.userDomainMask, true).first!
+//    let path = documentpath.appending("/Signal.txt")
+//    do{
+//        try
+//            mstr.write(toFile: path, atomically: true, encoding: String.Encoding.utf8)
+//    }catch{}
+//    DDLogError("我捕捉到了信号异常")
+    let fileManager = FileManager.default
+    let filePath: String = NSHomeDirectory() + "/Documents/Signal.txt"
+    //NSSearchPathForDirectoriesInDomains(FileManager.SearchPathDirectory.cachesDirectory, FileManager.SearchPathDomainMask.userDomainMask, true).first!.appending("/Exception.txt")
+    let exist = fileManager.fileExists(atPath: filePath)
+    if !exist {
+        fileManager.createFile(atPath: filePath, contents: nil, attributes: nil)
+        //                let documentpath = NSSearchPathForDirectoriesInDomains(FileManager.SearchPathDirectory.cachesDirectory, FileManager.SearchPathDomainMask.userDomainMask, true).first!
+        //                let path = documentpath.appending("/Exception.txt")
+        print("documentPath:\(filePath)")
+    }
+
+    let fileHandler = FileHandle.init(forWritingAtPath: filePath)
+    //            let fileHandler = FileHandle.init(forUpdatingAtPath: filePath)
+    fileHandler?.seekToEndOfFile()
+    let crashData = mstr.data(using: String.Encoding.utf8)
+    fileHandler?.write(crashData!)
+    DDLogError(mstr)
+
     //        CrashManager.saveCrash(appendPathStr: .signalCrashPath, exceptionInfo: mstr)
     //        exit(signal)
 }
@@ -46,23 +71,39 @@ class ExceptionManager: NSObject {
     // 设置奔溃信息格式
     public func setDefaultHandler() {
         LoggerManager.shared().configLoggerManager()
-        NSSetUncaughtExceptionHandler { (exception) in
-            let arr:NSArray = exception.callStackSymbols as NSArray
-            let reason:String = exception.reason!
-            let name:String = exception.name.rawValue
-            let date:NSDate = NSDate()
-            let timeFormatter = DateFormatter()
-            timeFormatter.dateFormat = "YYYY/MM/dd hh:mm:ss SS"
-            let strNowTime = timeFormatter.string(from: date as Date) as String
-            let url:String = String.init(format: "========异常错误报告========\ntime:%@\nname:%@\nreason:\n%@\ncallStackSymbols:\n%@",strNowTime,name,reason,arr.componentsJoined(by: "\n"))
-            DDLogVerbose("以下时奔溃日志")
-            DDLogError(url)
-            let documentpath = NSSearchPathForDirectoriesInDomains(FileManager.SearchPathDirectory.documentDirectory, FileManager.SearchPathDomainMask.userDomainMask, true).last!
-            let path = documentpath.appending("Exception.txt")
-            do{
-                try
-                    url.write(toFile: path, atomically: true, encoding: String.Encoding.utf8)
-            }catch{}
+        NSSetUncaughtExceptionHandler { (excep) in
+            // 提取奔溃日志信息，设置日志格式
+            let array: [String] = excep.callStackSymbols
+            let reason: String = excep.reason!
+            let name: String = excep.name.rawValue
+            let dateFormatter = DateFormatter.init()
+            dateFormatter.dateFormat = "YYYY-MM-dd HH:mm:ss"
+    
+            let time: String = dateFormatter.string(from: Date())
+            let crashMes: String = String.init(format: "\n========Crash异常错误报告========\ntime: %@\nname: %@\n reason: %@\ncallStackSymbols: %@\n",time,name,reason,array.joined(separator: "\n"))
+
+            let fileManager = FileManager.default
+            let filePath: String = NSHomeDirectory() + "/Documents/Exception.txt"
+            //NSSearchPathForDirectoriesInDomains(FileManager.SearchPathDirectory.cachesDirectory, FileManager.SearchPathDomainMask.userDomainMask, true).first!.appending("/Exception.txt")
+            let exist = fileManager.fileExists(atPath: filePath)
+            if !exist {
+                fileManager.createFile(atPath: filePath, contents: nil, attributes: nil)
+//                let documentpath = NSSearchPathForDirectoriesInDomains(FileManager.SearchPathDirectory.cachesDirectory, FileManager.SearchPathDomainMask.userDomainMask, true).first!
+//                let path = documentpath.appending("/Exception.txt")
+                print("documentPath:\(filePath)")
+            }
+
+            let fileHandler = FileHandle.init(forWritingAtPath: filePath)
+//            let fileHandler = FileHandle.init(forUpdatingAtPath: filePath)
+            fileHandler?.seekToEndOfFile()
+            let crashData = crashMes.data(using: String.Encoding.utf8)
+            fileHandler?.write(crashData!)
+//            do{
+//                try
+//                    crashMes.write(toFile: filePath, atomically: true, encoding: String.Encoding.utf8)
+//            }catch{}
+//            DDLogVerbose("\n以下是奔溃日志\n")
+            DDLogError(crashMes)
         }
     }
 
@@ -78,25 +119,25 @@ class ExceptionManager: NSObject {
         //    查看Backtraces以确定遇到意外情况的位置。附加信息也可能已被记录到设备的控制台。您应该修改崩溃位置的代码，以正常处理运行时故障。例如，使用可选绑定而不是强制解开可选的。
 
         print("我是注册函数")
-        signal(SIGABRT) { (SIGABRT) in
-            signalExceptionHandler(signal: SIGABRT)
+//        signal(SIGABRT) { (SIGABRT) in
+//            signalExceptionHandler(signal: SIGABRT)
+//        }
+//
+//        signal(SIGSEGV) { (SIGSEGV) in
+//            signalExceptionHandler(signal: SIGSEGV)
+//        }
+//
+//        signal(SIGBUS) { (SIGBUS) in
+//            signalExceptionHandler(signal: SIGBUS)
+//        }
+
+        signal(SIGTRAP) { (aSignal) in
+            signalExceptionHandler(signal: aSignal)
         }
 
-        signal(SIGSEGV) { (SIGSEGV) in
-            signalExceptionHandler(signal: SIGSEGV)
-        }
-
-        signal(SIGBUS) { (SIGBUS) in
-            signalExceptionHandler(signal: SIGBUS)
-        }
-
-        signal(SIGTRAP) { (SIGTRAP) in
-            signalExceptionHandler(signal: SIGTRAP)
-        }
-
-        signal(SIGILL) { (SIGILL) in
-            signalExceptionHandler(signal: SIGILL)
-        }
+//        signal(SIGILL) { (SIGILL) in
+//            signalExceptionHandler(signal: SIGILL)
+//        }
 //        signal(SIGABRT, signalExceptionHandler)
 //        signal(SIGSEGV, signalExceptionHandler)
 //        signal(SIGBUS, signalExceptionHandler)

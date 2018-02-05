@@ -22,29 +22,31 @@ class ViewController: UIViewController {
         DDLogWarn("Warn")
         DDLogError("Error")
         print("This is a Log Manager")
-
-        print(bteste!)
-
-        //exceptionLogWithData()
-//        let arry:NSArray = ["1"]
-//        print("%@",arry[5])
-        //print(array[2])
-
+        signalExcep()
     }
 
-    func exceptionLogWithData() {
-        ExceptionManager.shared().setDefaultHandler()
-        //        let a = ExceptionManager.init()
-        //        a.setDefaultHandler()
-        //        let str = a.getdataPath()
-        //        let data = NSData.init(contentsOfFile: str)
-        //        if data != nil {
-        //            let crushStr = String.init(data: data as! Data, encoding: String.Encoding.utf8)
-        //            print(crushStr!)
-        //        }
-        //测试数据
-//        let atest = nil
-//        print(atest!)
+    func signalExcep() {
+        let button = UIButton.init(frame: CGRect(x: 100, y: 200, width: 200, height: 44))
+        button.setTitle("signal exception", for: .normal)
+        button.backgroundColor = UIColor.blue
+        button.setTitleColor(.red, for: .normal)
+        button.addTarget(self, action: #selector(execee), for: .touchUpInside)
+
+        let button1 = UIButton.init(frame: CGRect(x: 100, y: 300, width: 200, height: 44))
+        button1.setTitle("normal exception", for: .normal)
+        button1.backgroundColor = UIColor.blue
+        button1.setTitleColor(.red, for: .normal)
+        button1.addTarget(self, action: #selector(exceptionLogWithData), for: .touchUpInside)
+
+        view.addSubview(button)
+        view.addSubview(button1)
+    }
+
+    @objc func execee() {
+        print(bteste!)
+    }
+
+    @objc func exceptionLogWithData() {
         let arry:NSArray = ["1"]
         print("%@",arry[5])
     }
