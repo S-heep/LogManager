@@ -21,9 +21,9 @@ class ShowLoggerViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        initDateFormate()
-        initTableView()
-        loadLoggerFiles()
+        self.initDateFormate()
+        self.initTableView()
+        self.loadLoggerFiles()
     }
 
     func initDateFormate() {
@@ -55,16 +55,24 @@ class ShowLoggerViewController: UIViewController {
 
 extension ShowLoggerViewController: UITableViewDelegate, UITableViewDataSource {
     func numberOfSections(in tableView: UITableView) -> Int {
-        return 2
+        return 3
         // 可以返回3个section，其中的一个进行旧文件的清理工作
     }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if section == 0 {
-            return 1
-        } else {
-            return ddLogerFiles.count
+        var row = 0
+
+        switch section {
+        case 0:
+            row = 1
+        case 1:
+            row = ddLogerFiles.count
+        case 2:
+            row = 1
+        default:
+            print("error Happened")
         }
+        return row
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -73,13 +81,17 @@ extension ShowLoggerViewController: UITableViewDelegate, UITableViewDataSource {
             cell = UITableViewCell.init(style: .default, reuseIdentifier: "cellID")
         }
         cell?.selectionStyle = UITableViewCellSelectionStyle.none
-        if indexPath.section == 1 {
-            let logFile = ddLogerFiles[indexPath.row]
-            cell?.accessoryType = UITableViewCellAccessoryType.disclosureIndicator
-            cell?.textLabel?.text = dateFormat.string(from: logFile.creationDate)
-        } else {
+        if indexPath.section == 0 {
             cell?.textLabel?.text = "所有奔溃日志"
         }
+        if indexPath.section == 1 {
+            let logFile = ddLogerFiles[indexPath.row]
+            cell?.textLabel?.text = dateFormat.string(from: logFile.creationDate)
+        }
+        if indexPath.section == 2 {
+            cell?.textLabel?.text = "清理缓存日志"
+        }
+        cell?.accessoryType = UITableViewCellAccessoryType.disclosureIndicator
         return cell!
 
     }
@@ -87,8 +99,10 @@ extension ShowLoggerViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         if section == 0 {
             return "奔溃日志"
-        } else {
+        } else if section == 1{
             return "所有日志"
+        } else {
+            return "日志清理"
         }
     }
 
@@ -118,6 +132,38 @@ extension ShowLoggerViewController: UITableViewDelegate, UITableViewDataSource {
             } catch {
                 print("未获取到log日志")
             }
+        }
+        if indexPath.section == 2 {
+            let attributedStr = NSMutableAttributedString.init(string: "点击确定以后会删除所有缓存日志，只保留当日日志，是否确定要删除")
+            attributedStr.addAttribute(kCTForegroundColorAttributeName as NSAttributedStringKey,
+                                       value: UIColor.init(red: 42.0/255, green: 42.0/255, blue: 42.0/255, alpha: 1),
+                                       range: NSRange(location: 0, length: 31))
+            attributedStr.addAttribute(kCTFontAttributeName as NSAttributedStringKey, value: UIFont.systemFont(ofSize: 16), range: NSRange(location: 0, length: 31))
+            let actionSheet = UIAlertController.init(title: "点击确定以后会删除所有缓存日志，只保留当日日志，是否确定要删除", message: nil, preferredStyle: .alert)
+            actionSheet.setValue(attributedStr, forKey: "attributedTitle")
+            let action = UIAlertAction.init(title: "取消", style: .default, handler: nil)
+            let action1 = UIAlertAction.init(title: "确定", style: .default, handler: { (_) in
+                // 执行删除日志操作
+                for file in self.ddLogerFiles {
+                    if file.isArchived {
+                        do {
+                            try FileManager.default.removeItem(atPath: file.filePath)
+                        } catch {
+                            print("未能删除缓存文件")
+                        }
+                    }
+                }
+                self.loadLoggerFiles()
+                tableView.reloadData()
+            })
+
+            action.setValue(UIColor.init(red: 42.0/255, green: 42.0/255, blue: 42.0/255, alpha: 0.9),
+                            forKey: "titleTextColor")
+            action1.setValue(UIColor.blue,
+                             forKey: "titleTextColor")
+            actionSheet.addAction(action)
+            actionSheet.addAction(action1)
+            self.navigationController?.present(actionSheet, animated: true, completion: nil)
         }
     }
 }

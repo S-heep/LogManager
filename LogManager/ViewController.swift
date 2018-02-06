@@ -46,7 +46,13 @@ class ViewController: UIViewController {
 
         view.addSubview(button)
         view.addSubview(button1)
-        view.addSubview(button2)
+        //view.addSubview(button2)
+        // 设置一个蒙版效果
+        let aView = UIView.init(frame: view.frame)
+        aView.backgroundColor = UIColor.lightGray
+        aView.alpha = 0.7
+        view.addSubview(aView)
+        aView.addSubview(button2)
     }
 
     @objc func execee() {
