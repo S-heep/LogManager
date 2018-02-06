@@ -65,7 +65,8 @@ class ViewController: UIViewController {
     }
 
     @objc func logSys() {
-        self.navigationController?.pushViewController(ShowLoggerViewController(), animated: true)
+        UIApplication.shared.keyWindow?.rootViewController = LoggerShowManagerVC()
+//        self.navigationController?.pushViewController(ShowLoggerViewController(), animated: true)
     }
 
 }

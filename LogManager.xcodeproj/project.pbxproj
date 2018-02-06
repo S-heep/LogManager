@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		94F85236CDC93A840C046658 /* Pods_LogManager.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 70CB3F4A75280D2936FE4D49 /* Pods_LogManager.framework */; };
+		F11390BD20297E6600B1DAED /* LoggerShowManagerVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F11390BC20297E6600B1DAED /* LoggerShowManagerVC.swift */; };
+		F11390BF20297FD000B1DAED /* AdjustSignalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F11390BE20297FD000B1DAED /* AdjustSignalViewController.swift */; };
+		F11390C12029808F00B1DAED /* GoBackViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F11390C02029808F00B1DAED /* GoBackViewController.swift */; };
 		F127D4BD2028228500B76244 /* ShowLoggerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F127D4BC2028228500B76244 /* ShowLoggerViewController.swift */; };
 		F127D4BF2028522D00B76244 /* DetailLoggerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F127D4BE2028522D00B76244 /* DetailLoggerViewController.swift */; };
 		F153C3A620229CBB0085C5ED /* SlideAdressTool.m in Sources */ = {isa = PBXBuildFile; fileRef = F153C3A420229CBA0085C5ED /* SlideAdressTool.m */; };
@@ -26,6 +29,9 @@
 		5AF9CCBDF7CC4BBEB54EAC99 /* Pods-LogManager.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LogManager.release.xcconfig"; path = "Pods/Target Support Files/Pods-LogManager/Pods-LogManager.release.xcconfig"; sourceTree = "<group>"; };
 		70CB3F4A75280D2936FE4D49 /* Pods_LogManager.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_LogManager.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		79731199B15A680AFDF86BD5 /* Pods-LogManager.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LogManager.debug.xcconfig"; path = "Pods/Target Support Files/Pods-LogManager/Pods-LogManager.debug.xcconfig"; sourceTree = "<group>"; };
+		F11390BC20297E6600B1DAED /* LoggerShowManagerVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoggerShowManagerVC.swift; sourceTree = "<group>"; };
+		F11390BE20297FD000B1DAED /* AdjustSignalViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdjustSignalViewController.swift; sourceTree = "<group>"; };
+		F11390C02029808F00B1DAED /* GoBackViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoBackViewController.swift; sourceTree = "<group>"; };
 		F127D4BC2028228500B76244 /* ShowLoggerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowLoggerViewController.swift; sourceTree = "<group>"; };
 		F127D4BE2028522D00B76244 /* DetailLoggerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailLoggerViewController.swift; sourceTree = "<group>"; };
 		F153C3A020219A8D0085C5ED /* LogManager-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "LogManager-Bridging-Header.h"; sourceTree = "<group>"; };
@@ -115,8 +121,11 @@
 				F1F6B8052019AD92006E824B /* Info.plist */,
 				F1F6B856201F071D006E824B /* Micros.swift */,
 				F153C3A020219A8D0085C5ED /* LogManager-Bridging-Header.h */,
+				F11390BC20297E6600B1DAED /* LoggerShowManagerVC.swift */,
 				F127D4BC2028228500B76244 /* ShowLoggerViewController.swift */,
 				F127D4BE2028522D00B76244 /* DetailLoggerViewController.swift */,
+				F11390BE20297FD000B1DAED /* AdjustSignalViewController.swift */,
+				F11390C02029808F00B1DAED /* GoBackViewController.swift */,
 			);
 			path = LogManager;
 			sourceTree = "<group>";
@@ -251,6 +260,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F11390BD20297E6600B1DAED /* LoggerShowManagerVC.swift in Sources */,
 				F1F6B857201F071D006E824B /* Micros.swift in Sources */,
 				F127D4BD2028228500B76244 /* ShowLoggerViewController.swift in Sources */,
 				F127D4BF2028522D00B76244 /* DetailLoggerViewController.swift in Sources */,
@@ -258,8 +268,10 @@
 				F1F6B855201EF807006E824B /* LoggerFormatter.swift in Sources */,
 				F1F6B859201F5011006E824B /* LoggerManager.swift in Sources */,
 				F1F6B7FC2019AD92006E824B /* ViewController.swift in Sources */,
+				F11390BF20297FD000B1DAED /* AdjustSignalViewController.swift in Sources */,
 				F1F6B7FA2019AD92006E824B /* AppDelegate.swift in Sources */,
 				F153C3A620229CBB0085C5ED /* SlideAdressTool.m in Sources */,
+				F11390C12029808F00B1DAED /* GoBackViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
