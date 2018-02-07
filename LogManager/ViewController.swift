@@ -11,6 +11,9 @@ import CocoaLumberjack
 
 class ViewController: UIViewController {
     var bteste: String?
+    var flag: Bool = false
+    var myButton: TouchButton!
+
     override func viewDidLoad() {
         super.viewDidLoad()
         LoggerManager.shared().configLoggerManager()
@@ -53,6 +56,29 @@ class ViewController: UIViewController {
         aView.alpha = 0.7
         view.addSubview(aView)
         aView.addSubview(button2)
+
+        myButton = TouchButton.init(frame: CGRect(x: 0, y: 100, width: 40, height: 40))
+        myButton.moveEnable = true
+        myButton.tag = 10
+        flag = false
+        myButton.setTitle("log", for: .normal)
+        myButton.layer.borderColor = UIColor.black.cgColor
+        myButton.layer.borderWidth = 0.5
+        myButton.layer.cornerRadius = 20
+        //myButton.setBackgroundImage(UIImage.init(named: "touch"), for: .normal)
+        myButton.addTarget(self, action: #selector(touchBar), for: .touchUpInside)
+        aView.addSubview(myButton)
+    }
+
+    @objc func touchBar() {
+        if !myButton.moveEnabled {
+            if !flag {
+                UIApplication.shared.keyWindow?.rootViewController = LoggerShowManagerVC()
+                flag = true
+            } else {
+                flag = false
+            }
+        }
     }
 
     @objc func execee() {
