@@ -42,6 +42,7 @@ class TouchButton: UIButton {
         let offSetX = (currentPosition?.x)! - beginPoint.x
         let offSetY = (currentPosition?.y)! - beginPoint.y
         self.center = CGPoint(x: self.center.x + offSetX, y: self.center.y + offSetY)
+        // 左右边界定界
         if self.center.x > ((self.superview?.frame.size.width)! - self.frame.size.width / 2) {
             let x = (self.superview?.frame.size.width)! - self.frame.size.width / 2
             self.center = CGPoint(x: x, y: self.center.y + offSetY)
@@ -49,6 +50,7 @@ class TouchButton: UIButton {
             let x = self.frame.size.width / 2
             self.center = CGPoint(x: x, y: self.center.y + offSetY)
         }
+        // 上下边界定界
         if self.center.y > (self.superview?.frame.size.height)! - self.frame.size.height / 2 {
             let x = self.center.x
             let y = (self.superview?.frame.size.height)! - self.frame.size.height / 2
@@ -66,13 +68,13 @@ class TouchButton: UIButton {
         }
         if self.center.x >= (self.superview?.frame.size.width)! / 2 {
             UIView.beginAnimations("move", context: nil)
-            UIView.setAnimationDuration(1.0)
+            UIView.setAnimationDuration(0.5)
             UIView.setAnimationDelegate(self)
             self.frame = CGRect(x: (self.superview?.frame.size.width)! - 40, y: self.center.y - 20, width: 40, height: 40)
             UIView.commitAnimations()
         } else {
             UIView.beginAnimations("move", context: nil)
-            UIView.setAnimationDuration(1.0)
+            UIView.setAnimationDuration(0.5)
             UIView.setAnimationDelegate(self)
             self.frame = CGRect(x: 0, y: self.center.y - 20, width: 40, height: 40)
             UIView.commitAnimations()

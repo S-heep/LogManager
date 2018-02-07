@@ -13,9 +13,11 @@ class ViewController: UIViewController {
     var bteste: String?
     var flag: Bool = false
     var myButton: TouchButton!
+    var aWindow: UIWindow!
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        view.backgroundColor = UIColor.red
         LoggerManager.shared().configLoggerManager()
         ExceptionManager.shared().setDefaultHandler()
         ExceptionManager.shared().registerSignalHandler()
@@ -47,16 +49,6 @@ class ViewController: UIViewController {
         button2.setTitleColor(.red, for: .normal)
         button2.addTarget(self, action: #selector(logSys), for: .touchUpInside)
 
-        view.addSubview(button)
-        view.addSubview(button1)
-        //view.addSubview(button2)
-        // 设置一个蒙版效果
-        let aView = UIView.init(frame: view.frame)
-        aView.backgroundColor = UIColor.lightGray
-        aView.alpha = 0.7
-        view.addSubview(aView)
-        aView.addSubview(button2)
-
         myButton = TouchButton.init(frame: CGRect(x: 0, y: 100, width: 40, height: 40))
         myButton.moveEnable = true
         myButton.tag = 10
@@ -65,18 +57,21 @@ class ViewController: UIViewController {
         myButton.layer.borderColor = UIColor.black.cgColor
         myButton.layer.borderWidth = 0.5
         myButton.layer.cornerRadius = 20
+        myButton.backgroundColor = UIColor.cyan
         //myButton.setBackgroundImage(UIImage.init(named: "touch"), for: .normal)
         myButton.addTarget(self, action: #selector(touchBar), for: .touchUpInside)
-        aView.addSubview(myButton)
+        view.addSubview(button)
+        view.addSubview(button1)
+        view.addSubview(button2)
+        view.addSubview(myButton)
+        
     }
 
     @objc func touchBar() {
         if !myButton.moveEnabled {
             if !flag {
-                UIApplication.shared.keyWindow?.rootViewController = LoggerShowManagerVC()
-                flag = true
-            } else {
-                flag = false
+                self.navigationController?.pushViewController(LoggerShowManagerVC(), animated: true)
+                //UIApplication.shared.keyWindow?.rootViewController = LoggerShowManagerVC()
             }
         }
     }
@@ -91,8 +86,8 @@ class ViewController: UIViewController {
     }
 
     @objc func logSys() {
-        UIApplication.shared.keyWindow?.rootViewController = LoggerShowManagerVC()
-//        self.navigationController?.pushViewController(ShowLoggerViewController(), animated: true)
+        //UIApplication.shared.keyWindow?.rootViewController = LoggerShowManagerVC()
+        self.navigationController?.pushViewController(AtestViewController(), animated: true)
     }
 
 }

@@ -36,7 +36,9 @@ class LoggerShowManagerVC: UITabBarController {
 
     override func tabBar(_ tabBar: UITabBar, didSelect item: UITabBarItem) {
         if (item.title?.elementsEqual("返回App"))! {
-            UIApplication.shared.keyWindow?.rootViewController = ViewController()
+            //let rootViewController = UIApplication.shared.windows
+//            UIApplication.shared.keyWindow?.rootViewController = ViewController()
+            self.navigationController?.popViewController(animated: true)
         }
     }
 }
