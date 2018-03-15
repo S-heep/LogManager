@@ -27,6 +27,7 @@ class ViewController: UIViewController {
         DDLogWarn("Warn")
         DDLogError("Error")
         print("This is a Log Manager")
+        print("This is a Log Manager test to catch a github")
         signalExcep()
     }
 
